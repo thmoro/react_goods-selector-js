@@ -26,15 +26,17 @@ export const App = () => {
           No goods selected
         </h1>
       ) : (
-        <h1 className="title is-flex is-align-items-center">
-          {`${selectedGood} is selected`}
-          <button
-            data-cy="ClearButton"
-            type="button"
-            className="delete ml-3"
-            onClick={() => setSelectedGood('')}
-          />
-        </h1>
+        <>
+          <h1 className="title is-flex is-align-items-center">
+            {`${selectedGood} is selected`}
+            <button
+              data-cy="ClearButton"
+              type="button"
+              className="delete ml-3"
+              onClick={() => setSelectedGood('')}
+            />
+          </h1>
+        </>
       )}
 
       <table className="table">
@@ -49,7 +51,7 @@ export const App = () => {
                 })}
               >
                 <td>
-                  {good === selectedGood && (
+                  {good === selectedGood ? (
                     <button
                       data-cy="RemoveButton"
                       type="button"
@@ -58,8 +60,7 @@ export const App = () => {
                     >
                       -
                     </button>
-                  )}
-                  {selectedGood === '' && (
+                  ) : (
                     <button
                       data-cy="AddButton"
                       type="button"
